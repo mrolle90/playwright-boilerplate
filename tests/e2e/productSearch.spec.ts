@@ -15,6 +15,7 @@ test.describe("product search", () => {
       );
       expect((await searchResponse).status()).toBe(200);
       await expect(searchPage.page).toHaveURL(`/search?q=Acme+Circles+T-Shirt`);
+      console.log("test")
     });
 
     await test.step("verify product cards", async () => {
