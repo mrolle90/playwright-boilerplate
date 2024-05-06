@@ -22,7 +22,7 @@ env:
 jobs:
   create_tesults_target:
     name: Create Tesults Target
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       
@@ -59,7 +59,7 @@ jobs:
       fail-fast: false
       matrix:
         shard: [1/4, 2/4, 3/4, 4/4]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container:
       image: mcr.microsoft.com/playwright:v1.43.0-jammy
     steps:
@@ -111,7 +111,7 @@ jobs:
     if: ${{ always() }}
     needs: playwright_test
     name: Reporting
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     steps:
     - uses: actions/checkout@v3
@@ -190,7 +190,7 @@ jobs:
   lighthouse_test:
     if: ${{ always() }}
     name: Lighthouse
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container:
       image: mcr.microsoft.com/playwright:v1.43.0-jammy
     steps:
